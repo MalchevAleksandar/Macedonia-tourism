@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+
+    <!--<title>Macedonia tourism</title>-->
+    <title>Убавините на Македонија</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="/css/css.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/jquery-ui.css" />
+
+
+    <!-- Custom Fonts -->
+    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/css/font-awesome.min.css" rel="stylesheet"  type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <![endif]-->
+
+
+</head>
+
+<body>
+
+<div id="wrapper">
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><span style="font-size: 15px" class="glyphicon glyphicon-chevron-up"></span></button>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top " role="navigation" style="margin-bottom: 0;background-color: #3d8b3d;border: 0px solid #3d8b3d">
+
+
+        <!---->
+        <form class="navbar-form navbar-right"  style="padding-right: 30px;" method="get" th:action="@{/search}">
+        <div class="input-group" style="width: 200px;">
+
+        <input type="text"
+        name="query"
+        class="form-control"
+        th:value="${query}"
+        placeholder="Search..." />
+        <span class="input-group-btn">
+        <button class="btn btn-default" type="submit">
+        <i class="fa fa-search"></i>
+        </button>
+        </span>
+
+        </div>
+        </form>
+
+
+        <div th:replace="fragments/top"></div>
+
+    </nav>
+
+    <nav class="navbar navbar-static-top " role="navigation" style="margin-bottom: 0;background-color: #1D597F;color: white;z-index: 0;">
+    <div class="continer-fluid  ">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only" style="background-color: #1D597F">Toggle navigation</span>
+                <span class="icon-bar" style="background-color: #1D597F"></span>
+                <span class="icon-bar" style="background-color: #1D597F"></span>
+                <span class="icon-bar" style="background-color: #1D597F"></span>
+            </button>
+            <a class="navbar-brand" href="index.html" id="brend" style="color: white;"> Запознај ја Мaкедонија</a>
+            <a class="navbar-brand" href="index.html" id="brend" style="color: white;"> Запознај ја Мaкедонија</a>
+          <a class="navbar-brand" href="index.html" style="margin-top: 0px;padding-top: 0px">  <img src="Slider/logo1.png" class="img-responsive"  style="width:50px; height: 50px;margin-top: 0px;padding-top: 0px;"/></a>
+        </div>
+        <div class="collapse navbar-collapse  " >
+
+        <ul class="nav navbar-nav " id="meni" style="font-size: 16px;">
+            <li th:classappend="${#httpServletRequest.getRequestURI() == '/index' ? 'active':''}"><a href="/index.html">Почетна</a></li>
+            <li><a href="/turistickimesta">Убавините на Македонија</a></li>
+            <li><a href="/galerija">Галерија</a></li>
+            <li th:if="${user!=null}" ><a href="/tvojpredlog">Администраторска страна</a></li>
+            <li><a href="/kontakt">Контакт</a></li>
+            <!--<li><a href="/products">Product</a></li>-->
+
+        </ul>
+        </div>
+
+    </div>
+    </nav>
+
+
+    <div id="page-wrapper" style="padding: 20px;">
+
+
+
+        <div th:replace="fragments/page::${pageFragment!=null? pageFragment : 'home'}" ></div>
+
+
+
+
+
+        </div>
+    <!-- /#page-wrapper -->
+<footer style="background-color: #1D597F">
+    <!--padding-top: 20px;padding-bottom: 20px;-->
+    <div class="container" id="foter">
+
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9  ">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <a href="index.html">  <img src="Slider/logo1.png" class="img-responsive"  style="width:80px; height: 80px;"/></a>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                 <a href="index.html"> <h4 style="margin-top: 40px;color:white">Запознај ја Македонија</h4></a>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="margin-top: 20px;margin-bottom: 20px;">
+            <div>
+            <ul class="social-network social-circle">
+                <!--<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>-->
+                <li><a href="https://www.facebook.com" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <!--<li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>-->
+                <li><a href="https://www.youtube.com" class="icoYoutube" title="Youtube"><i class="fa fa-youtube-play"></i></a></li>
+                <li><a href="https://www.instagram.com" class="icoInstagram" title="Intagram"><i class="fa fa-instagram"></i></a></li>
+
+                <!--<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>-->
+            </ul>
+
+        </div>
+        </div>
+    </div>
+
+
+    </div>
+</footer>
+</div>
+
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+
+
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/sb-admin-2.js"></script>
+
+<script src="/js/angular.js"></script>
+<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+
+    
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.showMe = false;
+        $scope.myFunc = function() {
+            $scope.showMe = !$scope.showMe;
+        }
+    });
+</script>
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 140 || document.documentElement.scrollTop > 140) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("area[rel^='prettyPhoto']").prettyPhoto();
+
+        $(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'light_square',slideshow:3000, autoplay_slideshow: true});
+        $(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+
+        $("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+            custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+            changepicturecallback: function(){ initialize(); }
+        });
+
+        $("#custom_content a[rel^='prettyPhoto']:last").prettyPhoto({
+            custom_markup: '<div id="bsap_1259344" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div><div id="bsap_1237859" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6" style="height:260px"></div><div id="bsap_1251710" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div>',
+            changepicturecallback: function(){ _bsap.exec(); }
+        });
+    });
+</script>
+
+</body>
+
+</html>

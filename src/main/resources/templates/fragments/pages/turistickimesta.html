@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<div xmlns:th="http://www.thymeleaf.org">
+    <h4 th:if="${exception!=null}" class="panel panel-danger" th:text="${exception}"></h4>
+
+
+    <div class="container" style="background-color: #255625;color: #b2dba1;opacity: 0.93;"  ng-app="myApp" ng-controller="myCtrl">
+        <h3 style="font-family: Helvetica ">Погледнете ги само дел од убавините на Македонија</h3>
+
+        <!--treba da stavam dropdown za izbiranje katergorija   th:each="d : ${categories}"-->
+
+        <a id="preb" ng-click="myFunc()" href="#">Напредно пребарување</a>
+
+
+
+        <div id="det" ng-show="showMe" style="margin-top: 30px;opacity: 1">
+                <form   th:action="@{/category}"
+                      enctype="multipart/form-data"
+                      method="GET"
+                      xmlns:th="http://www.thymeleaf.org">
+
+
+                    <div class="row">
+
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                   <p style="margin-bottom: 20px"> Избери категорија:</p>
+                    <select name="categoryId" class="form-control" style="width: 200px;margin-right: 0px">
+
+                        <option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+                    </select>
+
+                        </div>
+                    <!--Picture (png): <input type="file" name="picture"  /><br/>-->
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <input type="submit" class="btn btn-primary" value="Пребарај" style="margin-top: 40px;"/>
+                    </div>
+
+                    </div>
+                </form>
+        </div>
+
+
+
+
+
+        <div th:each="prod : ${product}" class="row" style="margin-bottom: 15px;margin-top: 20px">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                <img  th:src="@{/book/{id}/picture(id=${prod.id})}" style="width: 300px;height: 200px;" class="img-responsive"></img>
+            </div>
+
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
+                <h2 th:text="${prod.name}" style="color: #3d8b3d;"></h2>
+                <div th:text="${prod.description}" style="margin-bottom: 20px;"></div>
+                <span th:href="@{/category/{categoryId}(categoryId=${prod.category.id})}"
+                   th:text="${prod.category.name}" style="color: #3d8b3d;">
+                </span>
+                <br />
+                <br />
+
+                <hr/>
+            </div>
+
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Погледнете повеќе информации</h4>
+                        </div>
+                        <div class="modal-body" >
+
+
+                            <p>Mestoto se naoga vo centarot na Makedonija</p>
+                            <h2 th:text="${prod.name}"></h2>
+                            <div th:text="${prod.description}"></div>
+                            <a th:href="@{/category/{categoryId}(categoryId=${prod.category.id})}"
+                               th:text="${prod.category.name}">
+                            </a>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+
+            <hr/>
+        </div>
+        <hr/>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
