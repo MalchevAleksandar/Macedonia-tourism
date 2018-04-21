@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--Create product:-->
+<!--<form th:action="@{/admin/book}"-->
+      <!--enctype="multipart/form-data"-->
+      <!--method="POST"-->
+      <!--xmlns:th="http://www.thymeleaf.org">-->
+
+<!--</form>-->
+
+<div class="container" xmlns:th="http://www.w3.org/1999/xhtml" id="kon">
+    <div class="row" style="margin-bottom: 30px;margin-top: 30px;">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-5">
+            <img src="/Slider/ace.JPG" class="img-responsive img-circle" style="width: 200px; height: 200px;" />
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-7">
+            <h3>Aleksandar Malchev</h3>
+            <div class="pull-left">
+                <!--<ul class="social" id="jquery" >-->
+
+                    <!--<li class="facebook">-->
+                        <!--<a href="https://www.facebook.com/malcevaleksandar?fref=ts"><strong>Facebook</strong></a>-->
+                    <!--</li>-->
+
+                    <!--<li class="instagram">-->
+                        <!--<a href="https://www.instagram.com/malcevaleksandar/"><strong>Instagram</strong></a>-->
+                    <!--</li>-->
+
+                <!--</ul>-->
+                <ul class="social-network social-circle">
+                    <!--<li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>-->
+                    <li><a href="https://www.facebook.com/malcevaleksandar" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>-->
+                    <!--<li><a href="https://www.youtube.com" class="icoYoutube" title="Youtube"><i class="fa fa-youtube-play"></i></a></li>-->
+                    <li><a href="https://www.instagram.com/malcevaleksandar/" class="icoInstagram" title="Intagram"><i class="fa fa-instagram"></i></a></li>
+
+                    <!--<li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>-->
+                </ul>
+            </div>
+            <br /><br />
+            <h4 id="naslov">malcevaleksandar@yahoo.com</h4>
+            <button class="btn btn-primary " type="button" data-toggle="modal" data-target="#myModal">Испрати меил</button>
+                <!--<form action="mailto:malcevaleksandar@yahoo.com" method="POST" enctype="text/plain" >-->
+                    <!--<p style="color:black;">Име и презиме</p>-->
+                    <!--<input  id="name" class="form-control" name="name" type="text" value="" size="40" style="margin-bottom: 5px;" />-->
+                    <!--<p style="color: black">e-mail адреса</p>-->
+                    <!--<input id="email" class="form-control" name="email" type="text" value="" size="40" style="margin-bottom: 5px;" />-->
+
+                    <!--<p style="color: black">Вашата порака</p>-->
+                    <!--<textarea id="poraka" class="form-control" name="poraka" rows="10" cols="50"  ></textarea>-->
+                    <!--<br />-->
+                    <!--<input id="submit" type="submit" value="Испрати" class="btn btn-primary" />-->
+                    <!--<input id="reset" type="reset" value="reset" class="btn btn-danger" />-->
+                <!--</form>-->
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="myModal" >
+    <div class="modal-dialog" style="z-index: 0">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Испрати порака до Macedonia Turism</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="mailto:malcevaleksandar@yahoo.com" method="POST" enctype="text/plain" >
+                    <p style="color:black;">Име и презиме</p>
+                    <input  id="name" class="form-control" name="name" type="text" value="" size="40" style="margin-bottom: 5px;" />
+                    <!--<p style="color: black">e-mail адреса</p>-->
+                    <!--<input id="email" class="form-control" name="email" type="text" value="" size="40" style="margin-bottom: 5px;" />-->
+
+                    <p style="color: black">Вашата порака</p>
+                    <textarea id="poraka" class="form-control" name="poraka" rows="10" cols="50"  ></textarea>
+                    <br />
+                    <input id="submit" type="submit" value="Испрати" class="btn btn-primary" />
+                    <input id="reset" type="reset" value="Ресетирај" class="btn btn-danger" />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Затвори</button>
+
+            </div>
+        </div>
+    </div>
+</div>
